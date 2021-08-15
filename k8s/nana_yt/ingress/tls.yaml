@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mongosecret-tls
+  namespace: default
+data:
+  tls.crt: dXNlcm5hbWU=
+  tls.key: cGFzc3dvcmQ=
+type: kubernetes.io/tls
