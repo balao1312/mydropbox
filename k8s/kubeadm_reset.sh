@@ -6,7 +6,7 @@ sudo rm -rf /var/lib/kubelet/*
 sudo rm -rf /run/flannel
 sudo rm -rf /etc/cni/
 sudo systemctl start docker
-rm /home/$USER/.kube
+rm -rf /home/$USER/.kube
 
 # ifconfig cni0 down
 # brctl delbr cni0
