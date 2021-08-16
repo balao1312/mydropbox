@@ -1,6 +1,6 @@
 sudo kubeadm reset -f
 sudo systemctl stop kubelet
-sudo systemctl stop docker
+sudo systemctl stop docker.socket docker.service
 sudo rm -rf /var/lib/cni/
 sudo rm -rf /var/lib/kubelet/*
 sudo rm -rf /run/flannel
