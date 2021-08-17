@@ -88,4 +88,131 @@ spec:
 ```
 
 
+## Deployment yaml
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx-server
+        image: nginx
+```
+
+## Deployment rollout status, undo
+```
+kubectl rollout status deployment deployment-name
+kubectl rollout undo deployment deployment-name
+```
+
+
+## DaemonSet yaml
+```
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: test-ds
+  labels:
+    app: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+#      tolerations:
+#      - key: node-role.kubernetes.io/master
+#        effect: NoSchedule
+      containers:
+      - name: nginx-server
+        image: nginx
+```
+
+## StatefulSet yaml
+```
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: test-sts
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  serviceName: "nginx"
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx-server
+        image: balao1312/amd_print_test
+```
+
+## Job yaml
+```
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+spec:
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: perl
+        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+      restartPolicy: Never
+  completions: 5
+  #parallelism: 2
+  #activeDeadlineSeconds: 3
+  backoffLimit: 4
+```
+
+
+## job deadline seconds  
+activDeadlineSeconds 的順序比 backoffLimit 還要前面  
+所以只要時間超過而結束，job就不會去判斷 BackoffLimit 有沒有達到
+
+
+## Cronjob yaml
+```
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: pi
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: pi
+            image: perl
+            command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+          restartPolicy: Never
+      completions: 5
+      #parallelism: 2
+      #activeDeadlineSeconds: 3
+      backoffLimit: 4
+```
 
