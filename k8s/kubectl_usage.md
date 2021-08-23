@@ -216,3 +216,72 @@ spec:
       backoffLimit: 4
 ```
 
+## kubectl api-resources
+see all resources name
+
+## kubectl get endpoints
+see service endpoints
+
+## kubectl get pods -l label
+filter with label  
+`kubectl get pods -l app=hello-kubernetes`
+
+
+## Service yaml
+hello.yaml
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-kubernetes
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-kubernetes
+  template:
+    metadata:
+      labels:
+        app: hello-kubernetes
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: paulbouwer/hello-kubernetes:1.7
+        ports:
+        - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      containers:
+      - name: client
+        image: hwchiu/netutils
+```
+
+service.yaml
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: cluster-demo
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: hello-kubernetes
+```
+
+
