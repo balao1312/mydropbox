@@ -284,4 +284,69 @@ spec:
     app: hello-kubernetes
 ```
 
+## get ClusterIP or NodePort
+```
+kubectl get svc cluster-demo -o jsonpath='{.spec.clusterIP}'  
+kubectl get svc nodeport-demo  -o jsonpath='{.spec.ports[0].nodePort}'
+```
+
+## Misc
+- statefulset 名稱不使用hash值而用流水號1..2..方便存取.
+- headless => 有特別存取單一pod需求，不想透過clusterIP or NodePort 的 loadbalancing.
+
+## 1.22版k8s 安裝 ingress-nginx 
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
+```
+
+
+## 1.22版k8s Ingress yaml format
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-http
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: test.com
+    http:
+      paths:
+      - path: /v1/
+        pathType: Prefix
+        backend:
+          service:
+            name: hellok8s
+            port:
+              number: 80
+      - path: /v2/
+        pathType: Prefix
+        backend:
+          service:
+            name: httpd
+            port:
+              number: 80
+  - host: hello.com
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service:
+            name: hellok8s
+            port:
+              number: 80
+  - host: httpd.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: httpd
+            port:
+              number: 80
+```
+
 
