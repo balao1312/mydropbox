@@ -296,7 +296,7 @@ kubectl get svc nodeport-demo  -o jsonpath='{.spec.ports[0].nodePort}'
 
 ## 1.22版k8s 安裝 ingress-nginx 
 ```
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/baremetal/deploy.yaml
 ```
 
 
