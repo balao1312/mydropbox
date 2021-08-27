@@ -1,0 +1,328 @@
+ue_db: [{
+    sim_algo: "xor", /* USIM authentication algorithm: xor, milenage or tuak */
+    imsi: "001010123456789", /* Anritsu Test USIM */
+//    imsi: "001012345678901", /* Agilent or R&S Test USIM */
+    amf: 0x9001, /* Authentication Management Field */
+    sqn: "000000000000", /* Sequence Number */
+    K: "00112233445566778899aabbccddeeff", /* Anritsu Test USIM */
+//    K: "4147494C454E5420544543484E4F0000", /* Agilent Test USIM */
+//    K: "000102030405060708090A0B0C0D0E0F", /* R&S Test USIM */
+
+    impi: "001010123456789@ims.mnc001.mcc001.3gppnetwork.org",
+    impu: ["001010123456789", "tel:0600000000", "tel:600"],
+    domain: "ims.mnc001.mcc001.3gppnetwork.org",
+    multi_sim: true, /* Experimental */
+
+    /* For standard SIP client */
+    /*pwd:  "amarisoft",
+    authent_type: "MD5",*/
+	},
+////////////////////
+////////////////
+//
+//
+
+
+//	{
+//   sim_algo: "xor", /* USIM authentication algorithm: xor, milenage or tuak */
+//    imsi: "001010123456801", /* Anritsu Test USIM */
+//    imsi: "001012345678901", /* Agilent or R&S Test USIM */
+//    amf: 0x9001, /* Authentication Management Field */
+//    sqn: "000000000000", /* Sequence Number */
+//    K: "00112233445566778899aabbccddeeff", /* Anritsu Test USIM */
+
+//    impi: "00101012345678a@ims.mnc001.mcc001.3gppnetwork.org",
+//    impu: ["00101012345678a", "tel:0600000000", "tel:600"],
+//    domain: "ims.mnc001.mcc001.3gppnetwork.org",
+//    multi_sim: true, /* Experimental */
+
+//    /* For standard SIP client */
+//    /*pwd:  "amarisoft",
+//    authent_type: "MD5",*/
+//},
+ {
+    sim_algo: "milenage",
+    imsi: "001010000000001",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "00112233445566778899AABBCCDDEEFF",
+    impu: ["sip:impu01", "tel:0600000001"],
+    impi: "impi01@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "001010000000002",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "00112233445566778899AABBCCDDEEFF",
+    impu: ["sip:impu02", "tel:0600000002"],
+    impi: "impi02@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "001010000000003",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "00112233445566778899AABBCCDDEEFF",
+    impu: ["sip:impu03", "tel:0600000003"],
+    impi: "impi03@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "001010000000004",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "00112233445566778899AABBCCDDEEFF",
+    impu: "impu04",
+    impi: "impi04@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "001010000000005",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "00112233445566778899AABBCCDDEEFF",
+    impu: "impu05",
+    impi: "impi05@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "001010000000006",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "00112233445566778899AABBCCDDEEFF",
+    impu: "impu06",
+    impi: "impi06@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "001010000000007",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "00112233445566778899AABBCCDDEEFF",
+    impu: "impu07",
+    impi: "impi07@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "001010000000008",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "00112233445566778899AABBCCDDEEFF",
+    impu: "impu08",
+    impi: "impi08@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "001010000000009",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "00112233445566778899AABBCCDDEEFF",
+    impu: "impu09",
+    impi: "impi09@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "001010000000010",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "00112233445566778899AABBCCDDEEFF",
+    impu: "impu10",
+    impi: "impi10@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "466666100000101",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "000102030405060708090A0B0C0D0E0F",
+    impu: "impu11",
+    impi: "impi11@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "466666100000073",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "000102030405060708090A0B0C0D0E0F",
+    impu: "impur12",
+    impi: "impi12@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "466666100000069",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "000102030405060708090A0B0C0D0E0F",
+    impu: "impur13",
+    impi: "impi13@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "466666100000103",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "000102030405060708090A0B0C0D0E0F",
+    impu: "impur14",
+    impi: "impi14@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "466666100000064",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "000102030405060708090A0B0C0D0E0F",
+    impu: "impur15",
+/*    impi: "impi15@amarisoft.com",*/
+    impu: ["sip:impu64", "tel:0600000064"],
+    impi: "impi15@amarisoft.com",
+},{
+    sim_algo: "xor",
+    imsi: "466666100000015",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu16",
+    impi: "impi16@amarisoft.com",
+
+},{
+    sim_algo: "xor",
+    imsi: "466666100000201",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu21",
+    impi: "impi21@amarisoft.com",
+},{
+    sim_algo: "xor",
+    imsi: "466666100000202",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu22",
+    impi: "impi22@amarisoft.com",
+},{
+    sim_algo: "xor",
+    imsi: "466666100000203",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu23",
+    impi: "impi23@amarisoft.com",
+},{
+    sim_algo: "xor",
+    imsi: "466666100000204",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu24",
+    impi: "impi24@amarisoft.com",
+},{
+    sim_algo: "xor",
+    imsi: "466666100000205",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu25",
+    impi: "impi25@amarisoft.com",
+
+},{
+    sim_algo: "milenage",
+    imsi: "466666100000001", 
+    /*opc: "cdc202d5123e20f62b6d676ac72cb318",*/
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x8000,
+    sqn: "000000000000",
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impur17",
+    impi: "impi17@amarisoft.com",
+},{
+    sim_algo: "milenage",
+    imsi: "466666007809402",
+    opc: "325210171093488C69711663F50D50B0",
+    amf: 0x8000,
+    sqn: "000000000000",
+    K: "C45B22B907B470515CF4450736D9A275",
+    impu: "impur18",
+    impi: "impi18@amarisoft.com",
+/* 89886050119020000074 */
+},{
+    sim_algo: "milenage",
+    imsi: "466666007809401",
+    opc: "8AE3BA71E8011AC7CD6A6829E83F44B6",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "965C6A22A6DC94453599865B1FA64E74",
+    impu: "impur19",
+    impi: "impi19@amarisoft.com",
+/* 89886050119020000066 */
+	
+}, {
+    sim_algo: "milenage",
+    imsi: "466666100000104",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "000102030405060708090A0B0C0D0E0F",
+    impu: "impur20",
+    impi: "impi20@amarisoft.com",
+/*}, {
+    sim_algo: "milenage",
+    imsi: "466666100000206",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "000102030405060708090A0B0C0D0E0F",
+    impu: "impur26",
+    impi: "impi26@amarisoft.com",
+*/
+},{
+    sim_algo: "xor",
+    imsi: "466666100000206",
+    //imsi: "001016100000206",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu26",
+    impi: "impi26@amarisoft.com",
+},{
+    sim_algo: "xor",
+    imsi: "466666100000207",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu27",
+    impi: "impi27@amarisoft.com",
+},{
+    sim_algo: "xor",
+    imsi: "466666100000208",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu28",
+    impi: "impi28@amarisoft.com",
+},{
+    sim_algo: "xor",
+    imsi: "466666100000209",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu29",
+    impi: "impi29@amarisoft.com",
+},{
+    sim_algo: "xor",
+    imsi: "466666100000210",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu30",
+    impi: "impi30@amarisoft.com",
+},{
+    sim_algo: "xor",
+    imsi: "001016100000208",
+    amf: 0x8000,
+    K: "000102030405060708090a0b0c0d0e0f",
+    impu: "impu31",
+    impi: "impi31@amarisoft.com",
+}, {
+    sim_algo: "milenage",
+    imsi: "466666100000171",
+    opc: "000102030405060708090A0B0C0D0E0F",
+    amf: 0x9001,
+    sqn: "000000000000",
+    K: "000102030405060708090A0B0C0D0E0F",
+    impu: "impur32",
+    impi: "impi32@amarisoft.com",
+
+}]
+
