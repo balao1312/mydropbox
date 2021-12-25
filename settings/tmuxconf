@@ -1,0 +1,93 @@
+# location: /home/user/.tmux.conf                                                                                                 
+
+### rebind hotkey
+
+# prefix setting (screen-like)
+set -g prefix C-g
+unbind C-b
+bind C-g send-prefix
+
+# reload config without killing server
+bind R source-file ~/.tmux.conf \; display-message "Config reloaded..."
+
+# "|" splits the current window vertically, and "-" splits it horizontally
+# unbind %
+bind | split-window -h
+bind - split-window -v
+
+# Pane navigation (vim-like)
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Pane resizing
+bind -r Left  resize-pane -L 4
+bind -r Down  resize-pane -D 4
+bind -r Up    resize-pane -U 4
+bind -r Right resize-pane -R 4
+
+
+### other optimization
+
+# set the shell you like (zsh, "which zsh" to find the path)
+# set -g default-command /bin/zsh
+# set -g default-shell /bin/zsh
+
+# use UTF8
+# set -g utf8
+# set-window-option -g utf8 on
+
+# display things in 256 colors
+set -g default-terminal "screen-256color"
+
+# mouse is great!
+# set-option -g mouse on
+
+# history size
+set -g history-limit 10000
+
+# fix delay
+set -g escape-time 0
+
+# 0 is too far
+set -g base-index 1
+setw -g pane-base-index 1
+
+# stop auto renaming
+setw -g automatic-rename off
+set-option -g allow-rename off
+
+# renumber windows sequentially after closing
+set -g renumber-windows on
+
+# window notifications; display activity on other window
+setw -g monitor-activity on
+set -g visual-activity on
+
+set-option -g status on
+set-option -g status-interval 1
+set-option -g status-justify centre
+set-option -g status-keys vi
+set-option -g status-position bottom
+set-option -g status-style fg=colour136,bg=colour236
+set-option -g status-left-length 20
+set-option -g status-left-style default
+set-option -g status-left "#[fg=green]#H #[fg=black]• #[fg=green,bright]#(uname -r)#[default]"
+set-option -g status-right-length 140
+set-option -g status-right-style default
+set-option -g status-right "#[fg=green,bg=default,bright]#(tmux-mem-cpu-load) "
+set-option -ag status-right "#[fg=white,dim,bg=default]#(uptime | cut -f 4-5 -d ' ' | cut -f 1 -d ',') "
+set-option -ag status-right " #[fg=white,bg=default]%a %H:%M:%S #[default] #[fg=default]%Y-%m-%d"
+set-window-option -g window-status-style fg=colour244
+set-window-option -g window-status-style bg=default
+set-window-option -g window-status-current-style fg=colour166
+set-window-option -g window-status-current-style bg=default
+
+
+# Sane scrolling
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
+
+# 2021.12.23 remain-on-exit
+#setw -g remain-on-exit on
+#bind-key r respawn-window '/bin/zsh'
