@@ -28,7 +28,7 @@ sudo usermod -aG docker $USER
 ## Change Docker Cgroup Diver to 'systemd'
 ```
 sudo mkdir /etc/docker
-cat &lt&ltEOF | sudo tee /etc/docker/daemon.json
+cat <<EOF | sudo tee /etc/docker/daemon.json
 {
   "exec-opts": ["native.cgroupdriver=systemd"],
   "log-driver": "json-file",
@@ -48,7 +48,7 @@ sudo systemctl restart docker
 export KUBE_VERSION="1.22.0"
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-cat &lt&ltEOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 sudo apt-get update
@@ -60,17 +60,17 @@ sudo apt-get install -y kubeadm=${KUBE_VERSION}-00 kubelet=${KUBE_VERSION}-00 ku
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 ```
 
+## Install CNI - calico
+```
+curl https://docs.projectcalico.org/manifests/calico.yaml -O
+kubectl apply -f calico.yaml
+```
+
 ## After first init, copy config to user home & set permission
 ```
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
-```
-
-## Install CNI - calico
-```
-curl https://docs.projectcalico.org/manifests/calico.yaml -O
-kubectl apply -f calico.yaml
 ```
 
 ## [option] Install CNI - flannel
