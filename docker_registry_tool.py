@@ -51,7 +51,7 @@ class Docker_registry_tool:
         try:
             output = check_output(
                 [cmd], timeout=5, stderr=STDOUT, shell=True).decode('utf8').strip()
-            print('==> deleted.')
+            print(f'==> {self.repo}:{self.tag} deleted.')
         except Exception as e:
             print(f'Error: {e}')
 
@@ -59,10 +59,13 @@ class Docker_registry_tool:
         try:
             cp = run(f'nc -vz {self.host} {self.port}', shell=True,
                      stdout=DEVNULL, stderr=DEVNULL, timeout=5)
-            print(f'\n==> docker server connected successfully.')
+            if cp.returncode:
+                raise TimeoutExpired('nc -vz', 5)
+            print(
+                f'\n==> Connect to docker registry server at {self.destination} successfully.')
         except TimeoutExpired:
             print(
-                f'Error: can\'t connect to docker server {self.host} at port {self.port}.')
+                f'\n==> ERROR: Can\'t connect to docker registry server at {self.host}:{self.port}.')
             sys.exit(1)
 
         if self.get_all == True:
