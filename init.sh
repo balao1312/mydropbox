@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get upgrade -y
 
 sudo apt-get install -y htop vim git net-tools iftop iperf3 iperf tmux nload fping
 
