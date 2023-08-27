@@ -20,7 +20,7 @@ class Get_iperf_sum:
         # print(list(sums))
 
         # [SUM]   0.00-1.00   sec  76.3 MBytes   640 Mbits/sec  0.090 ms  1786/58153 (3.1%)
-        mbps_pattern = re.compile(r'(\d*) Mbits/sec')
+        mbps_pattern = re.compile(r'(\d*.?\d*) Mbits/sec')
 
         counter = 0
         total = 0.0
