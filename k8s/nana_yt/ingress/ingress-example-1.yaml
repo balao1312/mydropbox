@@ -9,4 +9,4 @@ spec:
       - path: /test
         backend:
           serviceName: test
-          servicePort: 80
+        servicePort: 80
