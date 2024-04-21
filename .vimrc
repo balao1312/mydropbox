@@ -31,7 +31,7 @@ set list listchars=tab:\:\ ,trail:·,extends:?,precedes:?,nbsp:×
 "set background=dark
 "set lines=35 columns=100 " the windows sieze when open vim
 
-
+" for mac only
 " call plug#begin()
 " Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 " call plug#end()

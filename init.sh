@@ -7,5 +7,5 @@ sudo apt-get install -y iproute2 netcat dnsutils
 
 sudo rm /etc/localtime && sudo ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 
-cp ~/mydropbox/settings/tmuxconf ~/.tmux.conf
-cp ~/mydropbox/settings/vimrc ~/.vimrc
+cp ~/mydropbox/.tmux.conf ~/.tmux.conf
+cp ~/mydropbox/.vimrc ~/.vimrc
