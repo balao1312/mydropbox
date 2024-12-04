@@ -5,6 +5,7 @@ pub=$(cat ~/client1_publicKey)
 private=$(cat ~/client1_privateKey)
 read -p "Enter IP(192.168.60.X): " ipForWireguard
 
+echo ""
 echo "The PublicKey of this Wireguard Client is:"                                                                                                                                                     
 echo "$pub"
 #echo $private
