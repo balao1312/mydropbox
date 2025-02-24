@@ -12,4 +12,8 @@ sudo apt install iproute2
 sudo snap install cmake --classic
 
 cd UERANSIM
+
+# change to specific version
+git checkout v3.2.6
+
 make
